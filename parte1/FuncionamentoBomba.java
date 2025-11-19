@@ -2,10 +2,6 @@ package parte1;
 public class FuncionamentoBomba {
     private boolean status;
 
-    public FuncionamentoBomba() {
-        this.status = false;
-    }
-
     public void ligarBomba(int segundos) {
         if (!status) {
             status = true;
