@@ -3,17 +3,20 @@ public class FuncionamentoBomba {
     private boolean status;
 
     public void ligarBomba(int segundos) {
-        if (!status) {
+        try {
+            if (!status) {
             status = true;
             System.out.println("Bomba ligada.");
-            for (segundos = 5; segundos > 0; segundos--) {
-                System.out.println("Bomba em funcionamento...");
+            for (int i = segundos; segundos > 0; segundos--) {
                 System.out.println("Desligando em " + segundos + " segundos.");
+                Thread.sleep(1000);
             }
-            status = false;
-            System.out.println("Bomba desligada automaticamente!");
+            desligarBomba();
         } else {
             System.out.println("A bomba já está ligada.");
+        }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
